@@ -3,7 +3,9 @@
  * Module dependencies.
  */
 
-var express = require('express');
+var express = require('express')
+  , site = require('./site')
+  , crypto = require('crypto');
 
 var app = module.exports = express.createServer();
 
@@ -22,17 +24,20 @@ app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
+app.configure('staging', function(){
+  app.use(express.errorHandler()); 
+});
+
 app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
 // Routes
 
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Express'
-  });
-});
+//General
 
+app.get('/', site.index);
+
+// Start
 app.listen(3000);
-console.log("Express server listening on port %d", app.address().port);
+console.log("lit listening on port %d", app.address().port);
