@@ -5,15 +5,20 @@
 
 var Text = require('../models/text');
 
+function getCount (req, res, next) {
+  Text.count(function(err, count){
+	req.count = count;
+	next();
+  });
+}
+
 module.exports = function(app){
-  app.get('/', function(req, res){
-    Text.count(function(err, count){
+  app.get('/', getCount, function(req, res, next){
       Text.all(function(err, texts){
         res.render('index', {
-            count: count
+            count: req.count
           , texts: texts
         });
       });
-    });
   });
 };
