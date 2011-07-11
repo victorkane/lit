@@ -1,17 +1,17 @@
-h1 Blog
+h1 lit
 
 != messages()
 
 - if (count)
-  p Display all #{count} post(s)
-  #posts!= partial('post', posts)
+  p Display all #{count} text(s)
+  #texts!= partial('text', texts)
 - else
   p 
-    | It looks like you have no posts!
+    | It looks like you have no texts!
   p
     | Click
-    a(href=base + '/post/add') here 
-    | to create a post. Login
+    a(href=base + '/text/add') here 
+    | to create a text. Login
     | as
     em "admin" 
     | and

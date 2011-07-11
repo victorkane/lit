@@ -3,15 +3,15 @@
  * Module dependencies.
  */
 
-var Post = require('../models/post');
+var Text = require('../models/text');
 
 module.exports = function(app){
   app.get('/', function(req, res){
-    Post.count(function(err, count){
-      Post.all(function(err, posts){
+    Text.count(function(err, count){
+      Text.all(function(err, texts){
         res.render('index', {
             count: count
-          , posts: posts
+          , texts: texts
         });
       });
     });

@@ -4,19 +4,19 @@
 var ids = 0
   , db = {};
 
-var Post = exports = module.exports = function Post(title, body) {
+var Text = exports = module.exports = function Text(title, body) {
   this.id = ++ids;
   this.title = title;
   this.body = body;
   this.createdAt = new Date;
 };
 
-Post.prototype.save = function(fn){
+Text.prototype.save = function(fn){
   db[this.id] = this;
   fn();
 };
 
-Post.prototype.validate = function(fn){
+Text.prototype.validate = function(fn){
   if (!this.title) return fn(new Error('_title_ required'));
   if (!this.body) return fn(new Error('_body_ required'));
   if (this.body.length < 10) {
@@ -27,7 +27,7 @@ Post.prototype.validate = function(fn){
 };
 
 
-Post.prototype.update = function(data, fn){
+Text.prototype.update = function(data, fn){
   this.updatedAt = new Date;
   for (var key in data) {
     if (undefined != data[key]) {
@@ -37,7 +37,7 @@ Post.prototype.update = function(data, fn){
   this.save(fn);
 };
 
-Post.prototype.destroy = function(fn){
+Text.prototype.destroy = function(fn){
   exports.destroy(this.id, fn);
 };
 
@@ -62,6 +62,6 @@ exports.destroy = function(id, fn) {
     delete db[id];
     fn();
   } else {
-    fn(new Error('post ' + id + ' does not exist'));
+    fn(new Error('text ' + id + ' does not exist'));
   }
 };
