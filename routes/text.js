@@ -3,18 +3,9 @@
  * Module dependencies.
  */
 
-var basicAuth = require('express').basicAuth
-  , Text = require('../models/text');
+var Text = require('../models/text');
 
 module.exports = function(app){
-  /**
-   * Apply basic auth to all text related routes
-   */
-
-  app.all('/text(/*)?', basicAuth(function(user, pass){
-    return 'admin' == user && 'express' == pass;
-  }));
-
   /**
    * Map :text to the database, loading
    * every time :text is present.
