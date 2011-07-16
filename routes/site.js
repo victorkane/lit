@@ -26,4 +26,11 @@ module.exports = function(app){
       , texts: req.texts
     });
   });
+  
+  app.get('/textview', getCount, getTexts, function(req, res, next){
+    res.render('textview', {
+      count: req.count
+      , texts: req.texts
+    });
+  });
 };

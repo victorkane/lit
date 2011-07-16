@@ -44,7 +44,7 @@ module.exports = function(app){
 
       text.save(function(err){
         req.flash('info', 'Successfully created text _%s_', text.title);
-        res.redirect('/text/' + text.id);
+        res.redirect('/textview/');
       });  
     });
   });
@@ -79,7 +79,7 @@ module.exports = function(app){
       text.update(req.body.text, function(err){
         if (err) return next(err);
         req.flash('info', 'Successfully updated text');
-        res.redirect('back');
+        res.redirect('/textview');
       });
     });
   });

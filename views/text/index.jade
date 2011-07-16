@@ -1,7 +1,8 @@
 .text
   // title
-  h2
-    = text.title
+  a.view(href=base + '/text/' + text.id)
+    h2
+      = text.title
     a.edit(href=base + '/text/' + text.id + '/edit') Edit
   
   // flash messages
