@@ -20,11 +20,8 @@ function getTexts (req, res, next) {
 }
 
 module.exports = function(app){
-  app.get('/', getCount, getTexts, function(req, res, next){
-    res.render('index', {
-      count: req.count
-      , texts: req.texts
-    });
+  app.get('/', function(req, res, next){
+    res.render('index');
   });
   
   app.get('/textview', getCount, getTexts, function(req, res, next){
