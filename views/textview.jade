@@ -1,0 +1,21 @@
+h1 lit
+
+!= messages()
+
+- if (count)
+  p Display all #{count} text(s)
+  ul#texts
+    - each text in texts
+      a.view(href=base + '/text/' + text.id)
+        li= text.title
+  p
+    | Click
+    a(href=base + '/text/add') here 
+    | to add another text.
+- else
+  p 
+    | It looks like you have no texts!
+  p
+    | Click
+    a(href=base + '/text/add') here 
+    | to create a text.
