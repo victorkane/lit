@@ -42,6 +42,7 @@ app.configure(function(){
 
 require('./routes/site')(app);
 require('./routes/text')(app);
+require('./routes/user')(app);
 
 if (!module.parent) {
   app.listen(3000);
