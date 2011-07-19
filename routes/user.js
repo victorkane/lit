@@ -70,12 +70,7 @@ module.exports = function(app){
   });
 
   app.get('/login', function(req, res) {
-	if (req.session.user) {
-		req.session.success = 'Authenticated as ' + req.session.user.name
-				+ ' click to <a href="/logout">logout</a>. '
-				+ ' You may now access <a href="/restricted">/restricted</a>.';
-	}
-	res.render('login');
+    res.render('login');
   });
 
   app.post('/login', function(req, res) {
@@ -90,11 +85,11 @@ module.exports = function(app){
 				// or in this case the entire user object
 				req.session.user = user;
 				//res.redirect('back');
+                req.flash('info', 'Welcome _%s_', req.session.user.name);
 				res.redirect('/textview');
 			});
 		} else {
-			req.session.error = 'Authentication failed, please check your '
-					+ ' username and password.' + ' (use "tj" and "foobar")';
+			req.flash('error', 'Authentication failed, please check your username and password. (Use "th" and "foobar")');
 			res.redirect('back');
 		}
 	});
