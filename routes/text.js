@@ -5,6 +5,21 @@
 
 var Text = require('../models/text');
 
+function restrict(req, res, next) {
+  console.log('visited restricted');
+  if (req.session.user) {
+    next();
+  } else {
+    req.session.error = 'Access denied!';
+    res.redirect('/login');
+  }
+}
+
+function accessLogger(req, res, next) {
+  console.log('/restricted accessed by %s', req.session.user.name);
+  next();
+}
+
 module.exports = function(app){
   /**
    * Map :text to the database, loading
@@ -24,7 +39,7 @@ module.exports = function(app){
    * Add a text.
    */
 
-  app.get('/text/add', function(req, res){
+  app.get('/text/add', restrict, accessLogger, function(req, res){
     res.render('text/form', { text: {}});
   });
 
@@ -32,7 +47,7 @@ module.exports = function(app){
    * Save a posted text.
    */
 
-  app.post('/text', function(req, res){
+  app.post('/text', restrict, accessLogger, function(req, res){
     var data = req.body.text
       , text = new Text(data.title, data.body);
 
@@ -53,7 +68,7 @@ module.exports = function(app){
    * Display the text.
    */
 
-  app.get('/text/:text', function(req, res){
+  app.get('/text/:text', restrict, accessLogger, function(req, res){
     res.render('text', { text: req.text });
   });
 
@@ -61,7 +76,7 @@ module.exports = function(app){
    * Display the text edit form.
    */
 
-  app.get('/text/:text/edit', function(req, res){
+  app.get('/text/:text/edit', restrict, accessLogger, function(req, res){
     res.render('text/form', { text: req.text });
   });
 
@@ -69,7 +84,7 @@ module.exports = function(app){
    * Update text. Typically a data layer would handle this stuff.
    */
 
-  app.put('/text/:text', function(req, res, next){
+  app.put('/text/:text', restrict, accessLogger, function(req, res, next){
     var text = req.text;
     text.validate(function(err){
       if (err) {
