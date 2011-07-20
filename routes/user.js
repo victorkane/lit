@@ -89,7 +89,7 @@ module.exports = function(app){
 				res.redirect('/textview');
 			});
 		} else {
-			req.flash('error', 'Authentication failed, please check your username and password. (Use "th" and "foobar")');
+			req.flash('error', 'Authentication failed, please check your username and password. (Use "tj" and "foobar")');
 			res.redirect('back');
 		}
 	});
