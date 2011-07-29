@@ -2,21 +2,10 @@
  * Module dependencies.
  */
 
-var crypto = require('crypto');
 var Text = require('../models/text');
 
-var users = {
-  tj: {
-    name: 'tj'
-    , salt: 'randomly-generated-salt'
-    , pass: md5('foobar' + 'randomly-generated-salt')
-  }
-};
-
-//Used to generate a hash of the plain-text password + salt
-function md5(str) {
-  return crypto.createHash('md5').update(str).digest('hex');
-}
+var User = require('../models/user').User;
+var user = new User();
 
 function restrict(req, res, next) {
   console.log('visited restricted');
@@ -29,20 +18,8 @@ function restrict(req, res, next) {
 }
 
 function accessLogger(req, res, next) {
-  console.log('/restricted accessed by %s', req.session.user.name);
+  console.log('/restricted accessed by %s', req.session.user.registration_email);
   next();
-}
-
-function authenticate(name, pass, fn) {
-  var user = users[name];
-  // query the db for the given username
-  if (!user) return fn(new Error('cannot find user'));
-  // apply the same algorithm to the POSTed password, applying
-  // the md5 against the pass / salt, if there is a match we
-  // found the user
-  if (user.pass == md5(pass + user.salt)) return fn(null, user);
-  // Otherwise password is invalid
-  fn(new Error('invalid password'));
 }
 
 function getCount (req, res, next) {
@@ -74,8 +51,7 @@ module.exports = function(app){
   });
 
   app.post('/login', function(req, res) {
-	authenticate(req.body.username, req.body.password, function(err, user) {
-		console.log(user);
+	user.login(req.body.username, req.body.password, function(err, user) {
 		if (user) {
 			// Regenerate session when signing in
 			// to prevent fixation 
@@ -83,13 +59,13 @@ module.exports = function(app){
 				// Store the user's primary key 
 				// in the session store to be retrieved,
 				// or in this case the entire user object
-				req.session.user = user;
+				req.session.user = user[0].value;
 				//res.redirect('back');
-                req.flash('info', 'Welcome _%s_', req.session.user.name);
+                req.flash('info', 'Welcome _%s_ _%s_', req.session.user.first_name, req.session.user.last_name);
 				res.redirect('/textview');
 			});
 		} else {
-			req.flash('error', 'Authentication failed, please check your username and password. (Use "tj" and "foobar")');
+			req.flash('error', 'Authentication failed, please check your username and password. (Use "tj" and "foobar" but it will not work hehe )');
 			res.redirect('back');
 		}
 	});
