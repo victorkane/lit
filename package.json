@@ -6,5 +6,6 @@
       "express": "2.3.11"
     , "jade": ">= 0.0.1"
     , "express-messages": "0.0.2"
+    , "cradle": "0.5.5"
   }
 }
