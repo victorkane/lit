@@ -75,6 +75,17 @@ module.exports = function(app){
     res.render('registration');
   });
 
+  app.post('/register', function(req, res) {
+	user.register(req.body, function(err, user) {
+	  if (err) {
+	    req.flash('error', 'Registration failed, please check that you have entered a valid email and password');
+	    res.redirect('back');
+	  } else {
+        res.redirect('/login')
+	  }
+	});  
+  });
+  
   app.get('/textview', getCount, getTexts, restrict, accessLogger, function(req, res, next){
     res.render('textview', {
       count: req.count

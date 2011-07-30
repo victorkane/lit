@@ -29,4 +29,9 @@ User.prototype.login = function(login_name, login_password, callback) {
     });
 };
 
+User.prototype.register = function(data, callback) {
+  console.log(data);
+  callback('reg error');
+};
+
 exports.User = User;
