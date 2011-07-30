@@ -9,11 +9,19 @@ All code and docs, all process for the project, are right here on github; go to 
 
 ##### Current status 
 
-User profile persisted in CouchDB:
+To fully implement this User story, we need to completely refactor the text model along the clean lines of the user model, and persist texts by author in Couchdb:
+
+[Wiki view: As a writer I can work on my texts](/victorkane/lit/wiki/As-a-writer-i-can-work-on-my-texts)
+
+[Implementation issue view: As a writer I can work on my texts](/victorkane/lit/issues/7)
+
+Then we can go back and finish #6 with full navigation as per [Getting started](/victorkane/lit/wiki/Getting-started).
+
+User profile has already been persisted in CouchDB:
 
 [Wiki view: As a writer I can register as a user and work on my account and profile](https://github.com/victorkane/lit/wiki/As-a-writer-I-can-register-as-a-user-and-work-on-my-account-and-profile)
 
 [Implementation issue view: As a writer I can register as a user and work on my account and profile](https://github.com/victorkane/lit/issues/6)
 
 ### License
-Open Source. Copy Left. What part of "free" and "software" don't you understand? Fill in the [legal crap](http://www.fsf.org/licensing) yourself.
+Open Source. Copy Left. What part of "free" and "software" don't we understand? Fill in the [legal](http://www.fsf.org/licensing) yourself.
