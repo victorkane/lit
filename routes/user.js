@@ -71,6 +71,31 @@ module.exports = function(app){
 	});
   });
   
+  app.get('/register', function(req, res) {
+    res.render('registration');
+  });
+
+  app.post('/register', function(req, res) {
+	// TODO Validation mechanism
+    if (req.body.registration_email == '' || req.body.password == '') {
+      req.flash('error', 'Registration failed, please check that you have entered a valid email and password');
+	  res.redirect('back');
+    } else {
+	  user.register(req.body, function(err, user) {
+	  console.log('error: ');
+	  console.log(err);
+	    if (err) {
+	      req.flash('error', 'Registration failed, please check that you have entered a valid email and password');
+	      res.redirect('back');
+	    } else {
+      	  //console.log('Registration successful');
+		  req.flash('Thank you for registering. Please login with your registration email and password');
+          res.redirect('/login');
+	    }
+	  });  
+    }
+  });
+  
   app.get('/textview', getCount, getTexts, restrict, accessLogger, function(req, res, next){
     res.render('textview', {
       count: req.count
