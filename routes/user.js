@@ -71,6 +71,10 @@ module.exports = function(app){
 	});
   });
   
+  app.get('/register', function(req, res) {
+    res.render('registration');
+  });
+
   app.get('/textview', getCount, getTexts, restrict, accessLogger, function(req, res, next){
     res.render('textview', {
       count: req.count

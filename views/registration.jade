@@ -1,0 +1,24 @@
+h1 lit
+
+ul.menutab
+  li.menutab 
+      a(href='/login', title='login with your email') login
+  li.menutab register
+
+!= messages()
+
+form#login(action=base + '/register', method='post')
+  p
+    label(for='user[username]') Username:
+    input(type='text', name='username', value='you@example.com')
+  p
+    label(for='user[pass]') Password:
+    input(type='password', name='password', value='*****')
+  p
+    label(for='user[firstname]') First name(s):
+    input(type='text', name='firstname', value='')
+  p
+    label(for='user[lastname]') Last name:
+    input(type='text', name='lastname', value='')
+  p.buttons
+    input(type='submit', value='Submit registration')
