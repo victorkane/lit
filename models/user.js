@@ -11,7 +11,7 @@ User = function(host, port) {
     cache: true,
     raw: false
   });
-  this.db = this.connection.database('lit-users');
+  this.db = this.connection.database('lit_users');
 };
 
 User.prototype.login = function(login_name, login_password, callback) {
@@ -20,7 +20,9 @@ User.prototype.login = function(login_name, login_password, callback) {
         callback(error)
       }else{
     	// TODO try first without md5 or salt, ascii in database only until we get GUI user registration going
-    	if (result[0].value.password == login_password) {
+    	// TODO what policy on email being reused as username? Do we want to filter that out?
+    	// Check that there is a result to avoid crash with traceback if result is returned.
+    	if ((result.length > 0) && (result[0].value.password == login_password)) {
           callback(null, result);
     	}else{
     	  callback('auth error');
@@ -30,8 +32,15 @@ User.prototype.login = function(login_name, login_password, callback) {
 };
 
 User.prototype.register = function(data, callback) {
-  console.log(data);
-  callback('reg error');
+    data.created_at = new Date();    	
+    console.log(data);
+    this.db.save(data, function(error, result) {
+      if(error)	{
+        callback(error)
+      }else{
+    	callback(null, data)
+      }
+    });	
 };
 
 exports.User = User;
