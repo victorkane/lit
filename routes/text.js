@@ -49,7 +49,7 @@ module.exports = function(app){
 
   app.post('/text', restrict, accessLogger, function(req, res){
     var data = req.body.text
-      , text = new Text(data.title, data.body, req.session.user);
+      , text = new Text(data.title, data.body);
 
     text.validate(function(err){
       if (err) {

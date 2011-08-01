@@ -31,6 +31,16 @@ Text.prototype.validate = function(fn){
   fn();
 };
 
+exports.get = function(id, fn){
+  db.get(id, function(error, doc) {
+    if (error) {
+      fn(error)
+    }else{
+      fn(null, doc)
+    }
+  });
+};
+
 exports.byAuthor = function(author, fn) {
   db.view('default/byAuthor', {key: author}, function(error, result) {
     if(result.length > 0) {
@@ -70,10 +80,6 @@ exports.count = function(fn){
 };
 
 
-
-exports.get = function(id, fn){
-  fn(null, db[id]);
-};
 
 exports.destroy = function(id, fn) {
   if (db[id]) {

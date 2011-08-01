@@ -6,7 +6,7 @@ h1 lit
   p Display all #{count} text(s)
   ul#texts
     - each text in texts
-      a.view(href=base + '/text/' + text._id)
+      a.view(href=base + '/text/' + text.value._id)
         li= text.value.title
   p
     | Click
