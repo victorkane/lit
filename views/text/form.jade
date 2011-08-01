@@ -6,7 +6,7 @@
 
 != messages()
 
-form#text(action=base + '/text' + (text.title ? '/' + text.id : ''), method='post')
+form#text(action=base + '/text' + (text.title ? '/' + text._id : ''), method='post')
   - if (text.title)
     input(type='hidden', name='_method', value='put')
   p

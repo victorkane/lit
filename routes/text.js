@@ -16,7 +16,7 @@ function restrict(req, res, next) {
 }
 
 function accessLogger(req, res, next) {
-  console.log('/restricted accessed by %s', req.session.user.name);
+  console.log('/restricted accessed by %s', req.session.user.registration_email);
   next();
 }
 
@@ -30,9 +30,13 @@ module.exports = function(app){
     Text.get(id, function(err, text){
       if (err) return next(err);
       if (!text) return next(new Error('failed to load text ' + id));
-      //var doc = new Text(text.);
-      console.log(text);
-      req.text = text;
+      var doc = new Text(text.title, text.body, text.author);
+      //doc._id = text._id;
+      doc._id = id;
+      doc._rev = text._rev;
+      doc.createdAt = text.createdAt;
+      doc.updatedAt = text.updatedAt;
+      req.text = doc;
       next();
     });
   });
@@ -51,7 +55,7 @@ module.exports = function(app){
 
   app.post('/text', restrict, accessLogger, function(req, res){
     var data = req.body.text
-      , text = new Text(data.title, data.body);
+      , text = new Text(data.title, data.body, req.session.user.registration_email);
 
     text.validate(function(err){
       if (err) {
@@ -87,13 +91,16 @@ module.exports = function(app){
    */
 
   app.put('/text/:text', restrict, accessLogger, function(req, res, next){
-    var text = req.text;
+	var data = req.body.text;
+    text = req.text;
+    text.title = data.title;
+    text.body = data.body;
     text.validate(function(err){
       if (err) {
         req.flash('error', err.message);
         return res.redirect('back');
       }
-      text.update(req.body.text, function(err){
+      text.update(function(err){
         if (err) return next(err);
         req.flash('info', 'Successfully updated text');
         res.redirect('/textview');

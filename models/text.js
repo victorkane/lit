@@ -4,10 +4,10 @@
 var cradle = require('cradle');
 var db = new(cradle.Connection)().database('lit_texts');
 
-var Text = exports = module.exports = function Text(title, body, user) {
+var Text = exports = module.exports = function Text(title, body, author) {
   this.title = title;
   this.body = body;
-  this.author = user.registration_email;
+  this.author = author;
   this.createdAt = new Date;
 };
 
@@ -20,6 +20,12 @@ Text.prototype.save = function(fn){
     }
   });
 };
+
+Text.prototype.update = function(fn){
+  this.updatedAt = new Date;
+  this.save(fn);
+};
+
 
 Text.prototype.validate = function(fn){
   if (!this.title) return fn(new Error('_title_ required'));
@@ -61,16 +67,6 @@ exports.byAuthor = function(author, fn) {
 *****/
 	
 /*****************
-Text.prototype.update = function(data, fn){
-  this.updatedAt = new Date;
-  for (var key in data) {
-    if (undefined != data[key]) {
-      this[key] = data[key];
-    }
-  }
-  this.save(fn);
-};
-
 Text.prototype.destroy = function(fn){
   exports.destroy(this.id, fn);
 };

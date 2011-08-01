@@ -34,9 +34,9 @@ function getCount (req, res, next) {
 function getTexts (req, res, next) {
  if (req.session.user && req.session.user.registration_email) {
   Text.byAuthor(req.session.user.registration_email, function(err, texts){
-	console.log(texts);
 	req.texts = texts;
-	req.count = texts.length;
+	//req.count = texts.length;
+	req.count = (texts)?texts.length:0;
 	next();
   });
  }else{

@@ -33,7 +33,6 @@ User.prototype.login = function(login_name, login_password, callback) {
 
 User.prototype.register = function(data, callback) {
     data.created_at = new Date();    	
-    console.log(data);
     this.db.save(data, function(error, result) {
       if(error)	{
         callback(error)
