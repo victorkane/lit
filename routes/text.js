@@ -30,6 +30,8 @@ module.exports = function(app){
     Text.get(id, function(err, text){
       if (err) return next(err);
       if (!text) return next(new Error('failed to load text ' + id));
+      //var doc = new Text(text.);
+      console.log(text);
       req.text = text;
       next();
     });
