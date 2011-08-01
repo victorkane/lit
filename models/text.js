@@ -31,6 +31,25 @@ Text.prototype.validate = function(fn){
   fn();
 };
 
+exports.byAuthor = function(author, fn) {
+  db.view('default/byAuthor', {key: author}, function(error, result) {
+    if(result.length > 0) {
+      fn(null, result)
+    }else{
+      fn(error)
+    }
+  });
+}
+	
+/*****	
+  var arr = Object.keys(db).reduce(function(arr, id){
+	    arr.push(db[id]);
+	    return arr;
+	  }, []);
+	  fn(null, arr);
+	};
+*****/
+	
 /*****************
 Text.prototype.update = function(data, fn){
   this.updatedAt = new Date;
@@ -50,13 +69,7 @@ exports.count = function(fn){
   fn(null, Object.keys(db).length);
 };
 
-exports.all = function(fn){
-  var arr = Object.keys(db).reduce(function(arr, id){
-    arr.push(db[id]);
-    return arr;
-  }, []);
-  fn(null, arr);
-};
+
 
 exports.get = function(id, fn){
   fn(null, db[id]);

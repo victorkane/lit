@@ -22,18 +22,26 @@ function accessLogger(req, res, next) {
   next();
 }
 
+/*************************************
 function getCount (req, res, next) {
   Text.count(function(err, count){
 	req.count = count;
 	next();
   });
 }
+*************************************/
  
 function getTexts (req, res, next) {
-  Text.all(function(err, texts){
+ if (req.session.user && req.session.user.registration_email) {
+  Text.byAuthor(req.session.user.registration_email, function(err, texts){
+	console.log(texts);
 	req.texts = texts;
+	req.count = texts.length;
 	next();
   });
+ }else{
+   next();
+ }
 }
 
 module.exports = function(app){
@@ -96,7 +104,7 @@ module.exports = function(app){
     }
   });
   
-  app.get('/textview', getCount, getTexts, restrict, accessLogger, function(req, res, next){
+  app.get('/textview', getTexts, restrict, accessLogger, function(req, res, next){
     res.render('textview', {
       count: req.count
       , texts: req.texts
