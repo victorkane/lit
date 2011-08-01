@@ -89,7 +89,7 @@ module.exports = function(app){
 	      res.redirect('back');
 	    } else {
       	  //console.log('Registration successful');
-		  req.flash('Thank you for registering. Please login with your registration email and password');
+		  req.flash('info', 'Thank you for registering. Please login with your registration email and password');
           res.redirect('/login');
 	    }
 	  });  
