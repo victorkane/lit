@@ -1,19 +1,24 @@
 
-// Fake data store
+// Couchdb data store
 
-var ids = 0
-  , db = {};
+var cradle = require('cradle');
+var db = new(cradle.Connection)().database('lit_texts');
 
-var Text = exports = module.exports = function Text(title, body) {
-  this.id = ++ids;
+var Text = exports = module.exports = function Text(title, body, user) {
   this.title = title;
   this.body = body;
+  this.author = user.registration_email;
   this.createdAt = new Date;
 };
 
 Text.prototype.save = function(fn){
-  db[this.id] = this;
-  fn();
+  db.save(this, function(error, result) {
+    if(error) {
+      fn(error)
+    }else{
+      fn()
+    }
+  });
 };
 
 Text.prototype.validate = function(fn){
@@ -26,7 +31,7 @@ Text.prototype.validate = function(fn){
   fn();
 };
 
-
+/*****************
 Text.prototype.update = function(data, fn){
   this.updatedAt = new Date;
   for (var key in data) {
@@ -65,3 +70,4 @@ exports.destroy = function(id, fn) {
     fn(new Error('text ' + id + ' does not exist'));
   }
 };
+*******************************************/
