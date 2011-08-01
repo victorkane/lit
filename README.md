@@ -9,13 +9,13 @@ All code and docs, all process for the project, are right here on github; go to 
 
 ##### Current status 
 
-To fully implement this User story, we need to completely refactor the text model along the clean lines of the user model, and persist texts by author in Couchdb:
+To fully implement this User story, <s>we need to completely refactor the text model along the clean lines of the user model</s>, we need to persist texts by author in Couchdb on the basis of the cleaner Text prototype originally implemented as a fake data store (based on Express blog example post model):
 
 [Wiki view: As a writer I can work on my texts](/victorkane/lit/wiki/As-a-writer-i-can-work-on-my-texts)
 
 [Implementation issue view: As a writer I can work on my texts](/victorkane/lit/issues/7)
 
-Then we can go back and finish #6 with full navigation as per [Getting started](/victorkane/lit/wiki/Getting-started).
+Then we may want to refactor the User model along the same lines, after which we can go back and finish #6 with full navigation as per [Getting started](/victorkane/lit/wiki/Getting-started).
 
 User profile has already been persisted in CouchDB:
 
