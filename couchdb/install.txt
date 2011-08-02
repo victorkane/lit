@@ -1,0 +1,9 @@
+$ curl -X PUT http://localhost:5984/lit_users
+{"ok":true}
+$ curl -X PUT http://localhost:5984/lit_texts
+{"ok":true}
+$ curl -X PUT http://localhost:5984/lit_users/_design/default -d @lit_users.design
+{"ok":true,"id":"_design/default","rev":"1-d22ea3c0e94f928461b66228b2aea78b"}
+$ curl -X PUT http://localhost:5984/lit_texts/_design/default -d @lit_texts.design
+{"ok":true,"id":"_design/default","rev":"1-2d943dded0d253c862d23b366f7ea037"}
+$  
