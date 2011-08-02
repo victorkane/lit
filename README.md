@@ -11,15 +11,17 @@ When it is completed, there will be an active demo site using it. I actually wou
 
 All code and docs, all process for the project, are right here on github; go to [Wiki](https://github.com/victorkane/lit/wiki) for [User Stories](https://github.com/victorkane/lit/wiki/User-stories) and [Architectural Document]((https://github.com/victorkane/lit/wiki/Architecture-document), see [Issue Tracking](https://github.com/victorkane/lit/issues) for project overview and User Manual (when ready).
 
-##### Current status 
+### Current status 
 
-To fully implement this User story, <s>we need to completely refactor the text model along the clean lines of the user model</s>, we need to persist texts by author in Couchdb on the basis of the cleaner Text prototype originally implemented as a fake data store (based on Express blog example post model):
+Following User story implemented by persisting texts by author in Couchdb on the basis of the clean Text prototype originally implemented as a fake data store (based on Express blog example post model):
 
 [Wiki view: As a writer I can work on my texts](/victorkane/lit/wiki/As-a-writer-i-can-work-on-my-texts)
 
 [Implementation issue view: As a writer I can work on my texts](/victorkane/lit/issues/7)
 
-Then we may want to refactor the User model along the same lines, after which we can go back and finish #6 with full navigation as per [Getting started](/victorkane/lit/wiki/Getting-started).
+We may now want to refactor the User model along the same lines
+
+Main next step: to go back and finish #6 with full navigation as per [Getting started](/victorkane/lit/wiki/Getting-started).
 
 User profile has already been persisted in CouchDB:
 
@@ -81,4 +83,4 @@ $
 * Click on `Register` to register a user, then login and create some texts and check out the code!
 
 ### License
-Open Source. Copy Left. What part of "free" and "software" don't we understand? Fill in the [legal](http://www.fsf.org/licensing) yourself.
+Open Source. Copy Left. What part of "free" and "software" don't we understand? Feel free to fill in the [legal](http://www.fsf.org/licensing) yourself.
