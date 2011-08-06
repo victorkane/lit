@@ -4,7 +4,7 @@
  */
 
 var Text = require('../models/text');
-var md = require('markdown-js').markdown;
+var md = require('github-flavored-markdown').parse;
 
 function restrict(req, res, next) {
   console.log('visited restricted');
