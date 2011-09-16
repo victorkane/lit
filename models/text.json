@@ -1,0 +1,9 @@
+{
+   "_id": "24e9ecc477777df61ec6ee0964002508",
+   "_rev": "10-c0935952bd8de52d7b1e180cacbe0b4b",
+   "title": "This is my first text",
+   "body": "And this is the body of the text. Is *Markdown* supported here? YES! _Markdown_ is supported!\r\n\r\nRoses are red.\r\nViolets are blue.\r\n\r\nThis is a [link][1].\r\n\r\n[1]: http://google.com/",
+   "author": "jim@coalitionsproject.org",
+   "createdAt": "2011-08-06T02:30:57.989Z",
+   "updatedAt": "2011-08-06T18:46:14.466Z"
+}
