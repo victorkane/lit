@@ -13,7 +13,7 @@ All code and docs, all process for the project, are right here on github; go to 
 
 ### Current status 
 
-Following User story implemented by persisting texts by author in Couchdb on the basis of the clean Text prototype originally implemented as a fake data store (based on Express blog example post model):
+Following User story has now been implemented by persisting texts by author in Couchdb on the basis of the clean Text prototype originally implemented as a fake data store (based on Express blog example post model):
 
 [Wiki view: As a writer I can work on my texts](/victorkane/lit/wiki/As-a-writer-i-can-work-on-my-texts)
 
