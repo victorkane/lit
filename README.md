@@ -9,7 +9,9 @@ See below for installation instructions.
 ##############################
 I M P O R T A N T VERSION INFO
 ##############################
-This is the initial version, Tag: v0.4.9 of the master branch, so tagged because it was written before node.js version 0.5.x . If you run this version of lit on a system running node later than 0.4.x, then you will get the following error:
+This is development branch v0.4.9 initially created off of the v0.4.9 tag of the master branch, in case further development and/or bug fixes were necessary.
+
+It was so named because it was written before node.js version 0.5.x . If you run this version of lit on a system running node later than 0.4.x, then you will get the following error:
 
 ````
 Error: require.paths is removed. Use node_modules folders, or the NODE_PATH environment variable instead.
