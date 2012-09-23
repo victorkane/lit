@@ -5,6 +5,32 @@ A literary workshop app based on node.js
 See below for installation instructions.
 
 #### "Under construction" of course: that's what makes it interesting.
+
+##############################
+I M P O R T A N T VERSION INFO
+##############################
+This is the initial version, Tag: v0.4.9 of the master branch, so tagged because it was written before node.js version 0.5.x . If you run this version of lit on a system running node later than 0.4.x, then you will get the following error:
+
+````
+Error: require.paths is removed. Use node_modules folders, or the NODE_PATH environment variable instead.
+````
+
+This will happen because not only is the system running a newer version of node, but all the dependency modules have early installed versions.
+
+To run this version, then, it is important to use a node.js binary manager like https://github.com/visionmedia/n
+
+To install version 0.4.9 of Node.js and to make it the current version on your system if it is already installed:
+
+    n 0.4.9
+
+Then you can do
+
+    node app
+    
+in the usual way.
+
+## Description and general instructions
+
 For now this is a pedagogical effort aimed at acquiring solvency for using a node.js, express.js and couchdb stack.
 
 When it is completed, there will be an active demo site using it. I actually would like to write a flash fiction piece every day using this.
