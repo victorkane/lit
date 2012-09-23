@@ -1,33 +1,9 @@
 ### lit.js
 
-A literary workshop app based on node.js
+A literary workshop app based on node.js, express.js, backbone.js, mongodb (mongoose), and some other good stuff, an architecture culled from Mark Bates' book [Programming in Coffeescript](https://github.com/markbates/Programming-In-CoffeeScript).
+(if you are looking for the older backend only version, checkout branch v0.4.9 (also tagged as v0.4.9 on master branch).
 
 See below for installation instructions.
-
-#### "Under construction" of course: that's what makes it interesting.
-
-##############################
-I M P O R T A N T VERSION INFO
-##############################
-This is the initial version, Tag: v0.4.9 of the master branch, so tagged because it was written before node.js version 0.5.x . If you run this version of lit on a system running node later than 0.4.x, then you will get the following error:
-
-````
-Error: require.paths is removed. Use node_modules folders, or the NODE_PATH environment variable instead.
-````
-
-This will happen because not only is the system running a newer version of node, but all the dependency modules have early installed versions.
-
-To run this version, then, it is important to use a node.js binary manager like https://github.com/visionmedia/n
-
-To install version 0.4.9 of Node.js and to make it the current version on your system if it is already installed:
-
-    n 0.4.9
-
-Then you can do
-
-    node app
-    
-in the usual way.
 
 ## Description and general instructions
 
