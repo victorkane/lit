@@ -1,9 +1,0 @@
-{
-   "_id": "_design/default",
-   "language": "javascript",
-   "views": {
-       "login": {
-           "map": "function(doc) {\n  emit(doc.registration_email, doc);\n}"
-       }
-   }
-}
