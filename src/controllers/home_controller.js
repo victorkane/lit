@@ -1,7 +1,9 @@
 (function() {
 
   app.get('/', function(req, res) {
-    return res.send("Hello, World!");
+    return res.render('index', {
+      layout: false
+    });
   });
 
 }).call(this);

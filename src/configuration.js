@@ -9,10 +9,12 @@
     }));
     app.use(app.router);
     app.use(express["static"](__dirname + '../public'));
-    return app.use(express.errorHandler({
+    app.use(express.errorHandler({
       dumpExceptions: true,
       showStack: true
     }));
+    app.set('views', "" + __dirname + "/views");
+    return app.set('view engine', 'ejs');
   });
 
 }).call(this);

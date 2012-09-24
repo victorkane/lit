@@ -7,3 +7,5 @@ app.configure ->
   app.use(app.router)
   app.use(express.static(__dirname + '../public'))
   app.use(express.errorHandler(dumpExceptions: true, showStack: true))
+  app.set('views', "#{__dirname}/views")
+  app.set('view engine', 'ejs')
