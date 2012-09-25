@@ -7,6 +7,5 @@ require("#{__dirname}/src/configuration")
 require("#{__dirname}/src/controllers/home_controller")
 
 # Start server:
-port = 3000;
-app.listen(port)
+app.listen(port = 3000)
 console.log("Lit server listening on port %d in %s mode", port, app.settings.env)
