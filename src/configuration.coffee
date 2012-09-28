@@ -9,3 +9,4 @@ app.configure ->
   app.use(express.errorHandler(dumpExceptions: true, showStack: true))
   app.set('views', "#{__dirname}/views")
   app.set('view engine', 'ejs')
+  app.use(require('connect-assets')())

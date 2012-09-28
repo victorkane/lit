@@ -14,7 +14,8 @@
       showStack: true
     }));
     app.set('views', "" + __dirname + "/views");
-    return app.set('view engine', 'ejs');
+    app.set('view engine', 'ejs');
+    return app.use(require('connect-assets')());
   });
 
 }).call(this);
