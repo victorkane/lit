@@ -7,6 +7,12 @@
 
   require("" + __dirname + "/src/configuration");
 
+  require("" + __dirname + "/src/models/database");
+
+  require("" + __dirname + "/src/models/user");
+
+  require("" + __dirname + "/src/controllers/user_controller");
+
   require("" + __dirname + "/src/controllers/home_controller");
 
   app.listen(port = 3000);

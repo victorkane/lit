@@ -3,6 +3,13 @@ global.express = require('express')
 global.app = app = express()
 require("#{__dirname}/src/configuration")
 
+# Set up the Database:
+require("#{__dirname}/src/models/database")
+
+# Require the Todo model and controller:
+require("#{__dirname}/src/models/user")
+require("#{__dirname}/src/controllers/user_controller")
+
 # Set up a routing for our homepage:
 require("#{__dirname}/src/controllers/home_controller")
 
