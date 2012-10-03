@@ -26,4 +26,4 @@ All code and docs, all process for the project, can now be found at [Pivotal Tra
 * Click on `Register` to register a user, then login and create some texts and check out the code!
 
 ### License
-Open Source. Copy Left.
+lit: Created by Victor Kane (awebfactory.com) and released under the MIT license.
