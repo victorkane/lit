@@ -11,7 +11,7 @@ For now this is a pedagogical effort aimed at acquiring solvency for using a nod
 
 When it is completed, there will be an active demo site using it. I actually would like to write a flash fiction piece every day using this.
 
-All code and docs, all process for the project, are at Project tracking docs now on [Pivotal Tracker public project](https://www.pivotaltracker.com/projects/648835). 
+All code and docs, all process for the project, can now be found at [Pivotal Tracker public project](https://www.pivotaltracker.com/projects/648835). 
 
 ### Installation
 
