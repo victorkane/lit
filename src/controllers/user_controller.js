@@ -20,28 +20,4 @@
     return res.json([{}]);
   });
 
-  app.get('/user/:id', function(req, res) {
-    return res.json([{}]);
-  });
-
-  app.put('/user/:id', function(req, res) {
-    return res.json([{}]);
-  });
-
-  app.post('/user/:id/:op', function(req, res) {
-    return res.json([{}]);
-  });
-
-  app.post('/user/:id/:op', function(req, res) {
-    return res.json([{}]);
-  });
-
-  app["delete"]('/user/:id', function(req, res) {
-    return res.json([{}]);
-  });
-
-  app.get('/user/users', function(req, res) {
-    return res.json([{}]);
-  });
-
 }).call(this);

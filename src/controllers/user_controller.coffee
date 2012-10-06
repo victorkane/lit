@@ -21,27 +21,3 @@ app.get '/user/logout', (req, res) ->
 app.post '/user', (req, res) ->
   res.json [{}]
 
-# Access a user's account page:
-app.get '/user/:id', (req, res) ->
-  res.json [{}]
-  
-# Update a user's account:
-app.put '/user/:id', (req, res) ->
-  res.json [{}]
-  
-# Disable a user's account
-app.post '/user/:id/:op', (req, res) ->
-  res.json [{}]
-
-# Enable a user's account
-app.post '/user/:id/:op', (req, res) ->
-  res.json [{}]
-
-# Delete a user's account
-app.delete '/user/:id', (req, res) ->
-  res.json [{}]
-
-# Get a list of users:
-app.get '/user/users', (req, res) ->
-  res.json [{}]
-
