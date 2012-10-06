@@ -6,7 +6,7 @@ require("#{__dirname}/src/configuration")
 # Set up the Database:
 require("#{__dirname}/src/models/database")
 
-# Require the Todo model and controller:
+# Require the User model and controller:
 require("#{__dirname}/src/models/user")
 require("#{__dirname}/src/controllers/user_controller")
 
