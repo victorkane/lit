@@ -1,9 +1,18 @@
 # This 'controller' will handle the server requests
 # for the User entity
 
+fields = forms.fields
+validators = forms.validators
+widgets = forms.widgets;
+
+reg_form = forms.create
+  email: fields.email(required: true)
+  
+
 # Register:
 app.get '/user/register', (req, res) ->
-  res.json [{}]
+  res.render 'register'
+    locals: form: reg_form.toHTML()
 
 # Access login form:
 app.get '/user/login', (req, res) ->
@@ -19,5 +28,5 @@ app.get '/user/logout', (req, res) ->
 
 # Create a new user account
 app.post '/user', (req, res) ->
-  res.json [{}]
+  res.json 
 

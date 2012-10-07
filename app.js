@@ -3,6 +3,8 @@
 
   global.express = require('express');
 
+  global.forms = require('forms');
+
   global.app = app = express();
 
   require("" + __dirname + "/src/configuration");
