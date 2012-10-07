@@ -28,5 +28,9 @@ app.get '/user/logout', (req, res) ->
 
 # Create a new user account
 app.post '/user', (req, res) ->
-  console.log form
-
+  reg_form.handle req,
+    success: (form) ->
+      console.log form.data
+    error: (form) ->
+      res.render 'register'
+        locals: form: reg_form.toHTML()
