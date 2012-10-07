@@ -28,5 +28,5 @@ app.get '/user/logout', (req, res) ->
 
 # Create a new user account
 app.post '/user', (req, res) ->
-  res.json 
+  console.log form
 
