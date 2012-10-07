@@ -39,9 +39,12 @@
         return console.log(form.data);
       },
       error: function(form) {
+        var aform;
+        console.log('oops');
+        aform = reg_form.bind(form.data);
         return res.render('register', {
           locals: {
-            form: reg_form.toHTML()
+            form: aform.toHTML()
           }
         });
       }

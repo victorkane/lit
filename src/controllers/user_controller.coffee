@@ -32,5 +32,7 @@ app.post '/user', (req, res) ->
     success: (form) ->
       console.log form.data
     error: (form) ->
+      console.log 'oops'
+      aform = reg_form.bind(form.data)
       res.render 'register'
-        locals: form: reg_form.toHTML()
+        locals: form: aform.toHTML()
