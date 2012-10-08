@@ -1,13 +1,12 @@
 # The User Mongoose model:
 global.User = mongoose.model 'User', new Schema
   id: ObjectId
-  name: 
-    first: 
-      type: String
-      required: true
-    last: 
-      type: String
-      required: true
+  firstname: 
+    type: String
+    required: true
+  lastname: 
+    type: String
+    required: true
   email:
     type: String
     unique: true

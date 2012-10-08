@@ -6,8 +6,17 @@ validators = forms.validators
 widgets = forms.widgets;
 
 reg_form = forms.create
-  email: fields.email(required: true)
-  
+  firstname: fields.string
+    required: false 
+  lastname: fields.string
+    required: false 
+  email: fields.email
+    required: true 
+  password: fields.password
+    required: true
+  confirm: fields.password
+    required: true
+    validators: [validators.matchField('password')]
 
 # Register:
 app.get '/user/register', (req, res) ->
