@@ -42,6 +42,13 @@ app.post '/user/register', (req, res) ->
   reg_form.handle req,
     success: (form) ->
       console.log form.data
+      # write record to MongoDB
+      @aUser = new User(form.data)
+      @aUser.save (err) =>
+      if err?
+        res.json(err, 500)
+      else
+        res.json @aUser
     error: (form) ->
       console.log 'oops'
       aform = reg_form.bind(form.data)

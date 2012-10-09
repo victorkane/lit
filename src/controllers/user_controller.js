@@ -51,7 +51,15 @@
   app.post('/user/register', function(req, res) {
     return reg_form.handle(req, {
       success: function(form) {
-        return console.log(form.data);
+        var _this = this;
+        console.log(form.data);
+        this.aUser = new User(form.data);
+        this.aUser.save(function(err) {});
+        if (typeof err !== "undefined" && err !== null) {
+          return res.json(err, 500);
+        } else {
+          return res.json(this.aUser);
+        }
       },
       error: function(form) {
         var aform;
