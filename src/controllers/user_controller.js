@@ -27,14 +27,6 @@
     })
   });
 
-  app.get('/user/register', function(req, res) {
-    return res.render('register', {
-      locals: {
-        form: reg_form.toHTML()
-      }
-    });
-  });
-
   app.get('/user/login', function(req, res) {
     return res.json([{}]);
   });
@@ -47,7 +39,16 @@
     return res.json([{}]);
   });
 
-  app.post('/user', function(req, res) {
+  app.get('/user/register', function(req, res) {
+    return res.render('register', {
+      locals: {
+        title: 'Filling out form...',
+        form: reg_form.toHTML()
+      }
+    });
+  });
+
+  app.post('/user/register', function(req, res) {
     return reg_form.handle(req, {
       success: function(form) {
         return console.log(form.data);
@@ -58,6 +59,7 @@
         aform = reg_form.bind(form.data);
         return res.render('register', {
           locals: {
+            title: 'Please use a valid email. Email and password are required fields.',
             form: aform.toHTML()
           }
         });

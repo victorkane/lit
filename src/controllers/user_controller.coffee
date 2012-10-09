@@ -18,11 +18,6 @@ reg_form = forms.create
     required: true
     validators: [validators.matchField('password')]
 
-# Register:
-app.get '/user/register', (req, res) ->
-  res.render 'register'
-    locals: form: reg_form.toHTML()
-
 # Access login form:
 app.get '/user/login', (req, res) ->
   res.json [{}]
@@ -35,8 +30,15 @@ app.post '/user/login', (req, res) ->
 app.get '/user/logout', (req, res) ->
   res.json [{}]
 
+# Register:
+app.get '/user/register', (req, res) ->
+  res.render 'register'
+    locals: 
+      title: 'Filling out form...'
+      form: reg_form.toHTML()
+
 # Create a new user account
-app.post '/user', (req, res) ->
+app.post '/user/register', (req, res) ->
   reg_form.handle req,
     success: (form) ->
       console.log form.data
@@ -44,4 +46,6 @@ app.post '/user', (req, res) ->
       console.log 'oops'
       aform = reg_form.bind(form.data)
       res.render 'register'
-        locals: form: aform.toHTML()
+        locals: 
+          title: 'Please use a valid email. Email and password are required fields.'
+          form: aform.toHTML()
