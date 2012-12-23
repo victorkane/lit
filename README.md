@@ -7,7 +7,7 @@ See below for installation instructions.
 
 ## Description and general instructions
 
-For now this is a pedagogical effort aimed at acquiring solvency for using a node.js, express.js and couchdb stack.
+For now this is a pedagogical effort aimed at acquiring solvency for using a node.js, express.js and mongodb stack.
 
 When it is completed, there will be an active demo site using it. I actually would like to write a flash fiction piece every day using this.
 
