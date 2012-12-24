@@ -1,6 +1,8 @@
 ### lit.js
 
-A literary workshop app based on node.js, express.js, backbone.js, mongodb (mongoose), and some other good stuff, an architecture culled from Mark Bates' book [Programming in Coffeescript](https://github.com/markbates/Programming-In-CoffeeScript).
+#### Branch lit2012
+
+A literary workshop app based on node.js, express.js, backbone.js, mongodb (mongoose), connect-assets pipeline and some other good stuff, an architecture culled from Mark Bates' book [Programming in Coffeescript](https://github.com/markbates/Programming-In-CoffeeScript).
 (if you are looking for the older backend only version, checkout branch v0.4.9 (also tagged as v0.4.9 on master branch).
 
 See below for installation instructions.
