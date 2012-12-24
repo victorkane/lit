@@ -18,4 +18,4 @@ require("#{__dirname}/src/controllers/home_controller")
 
 # Start server:
 app.listen(port = 3000)
-console.log("Lit server listening on port %d in %s mode", port, app.settings.env)
+console.log("The Lit server listening on port %d in %s mode", port, app.settings.env)
