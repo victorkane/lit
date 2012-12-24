@@ -4,7 +4,7 @@ A literary workshop app based on node.js
 
 See below for installation instructions.
 
-#### "Under construction" of course: that's what makes it interesting.
+#### "Under construction" of course: that's what makes it interesting (current dev branch: lit2012).
 
 ##############################
 I M P O R T A N T VERSION INFO
