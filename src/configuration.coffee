@@ -8,6 +8,6 @@ app.configure ->
   app.use(express.static(__dirname + '../public'))
   app.use(express.errorHandler(dumpExceptions: true, showStack: true))
   app.set('views', "#{__dirname}/views")
-  app.set('view engine', 'ejs')
+  app.set('view engine', 'jade');
   app.set('view options', layout: false)
   app.use(require('connect-assets')())
