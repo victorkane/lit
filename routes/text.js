@@ -4,6 +4,7 @@
  */
 
 var Text = require('../models/text');
+var md = require('github-flavored-markdown').parse;
 
 function restrict(req, res, next) {
   console.log('visited restricted');
@@ -66,7 +67,7 @@ module.exports = function(app){
       text.save(function(err){
         req.flash('info', 'Successfully created text _%s_', text.title);
         res.redirect('/textview/');
-      });  
+      });
     });
   });
 
@@ -75,7 +76,7 @@ module.exports = function(app){
    */
 
   app.get('/text/:text', restrict, accessLogger, function(req, res){
-    res.render('text', { text: req.text });
+    res.render('text', { text: req.text, md: md });
   });
 
   /**

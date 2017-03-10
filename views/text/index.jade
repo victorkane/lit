@@ -4,14 +4,14 @@
     h2
       = text.title
     a.edit(href=base + '/text/' + text._id + '/edit') Edit
-  
+
   // flash messages
   != messages()
-  
+
   // dates
   p.date.created Created at #{text.createdAt}
   - if (text.updatedAt)
     p.date.updated Updated at #{text.updatedAt}
-  
+
   // body
-  pre.body= text.body
+  pre.body!= md(text.body)
